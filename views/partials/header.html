@@ -8,9 +8,7 @@
     
     <!-- Title -->
     <title>
-      {{global.title}}
-      {{#if page}} &rsaquo; {{page}} {{/if}}
-      {{#if global.desc}}| {{global.desc}} {{/if}}
+      {{global.title}} &rsaquo; {{page}}
     </title>
 
     <!-- Fonts -->
@@ -52,41 +50,7 @@
       
     </nav> 
       
-      <!--
-    <ul id="nav-mobile-menu" role="menubar" aria-hidden="true">
-       
-        <!-- Nav Master Links 
-        <li aria-haspopup="true" role="menu" data-mobile-opens="a">
-          <a href="##" aria-expanded="false">Ding</a>
-        </li>
-        <li aria-haspopup="true" role="menu" data-mobile-opens="b">
-          <a href="##" aria-expanded="false">Dong</a>
-        </li>
-        <li aria-haspopup="true" role="menu" data-mobile-opens="c">
-          <a href="##" aria-expanded="false">Dingery</a>
-        </li>
-        <li aria-haspopup="true" role="menu" data-mobile-opens="d">
-          <a href="##" aria-expanded="false">Flap</a>
-        </li>
-
-        <!-- Nav Submenus 
-
-        <!-- Ding 
-        <ul data-mobile-submenu="a" class="second">
-          <li class="back">
-            <a>
-                Back <span class="sr-only">- back to previous menu</span>
-            </a>
-          </li>
-          <li>
-            <a href="##">Floozery</a>
-          </li>
-          <li>
-            <a href="##">Flim</a>
-          </li>
-          <li>
-            <a href="##">Flam</a>
-          </li>
-        </ul>
-        
-      </ul>-->
+    <!-- Start Page Container -->
+    {{#if container}}
+      <main id="main-content" class="page-{{page}}">
+    {{/if}}
