@@ -21,5 +21,17 @@ router.get('/', function(req, res) {
   
 });
 
+/* GET home */
+router.get('/swag', function(req, res) {
+	
+  
+  res.render('swag', { 
+    page: 'swag',
+    container: 'on',
+    global: global
+  });
+  
+  
+});
 
 module.exports = router;

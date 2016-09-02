@@ -12,11 +12,11 @@ console.log('--> navigation.js');
   var $pageContainer = $('#main-content');
 
 
-  // On Document Ready
+  // Document Ready
   $(document).ready(function() {
-
-    // Close mobile nav
-    closeNav();
+    
+    // Trigger a resize for the footer position function
+    $(window).trigger('resize');
 
   });
 
@@ -46,15 +46,20 @@ console.log('--> navigation.js');
   });
 
   // Control Page Overlays
+  // - overlay not necessary with nav-plus, so just applying the body class
   //
   function showPageOverlay() {
+    
       $('body').addClass(bodyOverlayClass);
+
   }
 
   function hidePageOverlay() {
-    setTimeout(function() {
-      $('body').removeClass(bodyOverlayClass);
-    },400)
+    if(!$('#video').length) { //fullscreen video page
+      setTimeout(function() {
+        $('body').removeClass(bodyOverlayClass);
+      },400)
+    }
   }
 
   // Hamburger to X
@@ -98,7 +103,7 @@ console.log('--> navigation.js');
 
     doTheHammy('open');
     showPageOverlay();
-    TweenLite.to($mobileNav, .3, { width: 300, ease: Power1.easeOut })
+    TweenLite.to($mobileNav, .3, { width: 305, ease: Power1.easeOut })
     TweenLite.to($pageContainer, .3, { x: 305, ease: Power1.easeOut })
     $hamburger.addClass('active'); 
 
@@ -132,6 +137,22 @@ console.log('--> navigation.js');
     });
 
 
+  });
+  
+  // Footer Positioning
+  $(window).resize(function() {
+    
+    var h = window.innerHeight,
+        navH = $('nav.nav-plus .links').height(),
+        footerH = $('.nav-footer').height();
+    
+        setTimeout(function() {
+          if(navH + (footerH * 2) < h) {
+            $('.nav-footer').css('position', 'absolute');
+          } else {
+            $('.nav-footer').css('position', 'relative');
+          }
+        },200);
   });
 
 })();
