@@ -113,7 +113,8 @@ console.log('--> navigation.js');
   //
   $hamburger.on('click', function(e) {
     e.preventDefault();
-
+    window.scrollTo(0,$('body').scrollTop());
+    
     // Default Action
     if(! $hamburger.hasClass('active')) {
       openNav();
