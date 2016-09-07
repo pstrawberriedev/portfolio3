@@ -21,17 +21,58 @@ router.get('/', function(req, res) {
   
 });
 
-/* GET home */
-router.get('/swag', function(req, res) {
+/* GET inspiration */
+router.get('/inspiration', function(req, res) {
 	
   
-  res.render('swag', { 
-    page: 'swag',
+  res.render('inspiration', { 
+    page: 'inspiration',
     container: 'on',
     global: global
   });
   
   
 });
+
+/* GET portfolio */
+router.get('/portfolio', function(req, res) {
+	
+  
+  res.render('portfolio', { 
+    page: 'portfolio',
+    container: 'on',
+    global: global
+  });
+  
+  
+});
+
+/* GET resume */
+router.get('/resume', function(req, res) {
+	
+  
+  res.render('resume', { 
+    page: 'resume',
+    container: 'on',
+    global: global
+  });
+  
+  
+});
+
+/* GET inspiration */
+router.get('/style', function(req, res) {
+	
+  
+  res.render('style', { 
+    page: 'style',
+    container: 'on',
+    global: global
+  });
+  
+  
+});
+
+
 
 module.exports = router;
