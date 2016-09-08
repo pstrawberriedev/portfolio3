@@ -4,7 +4,7 @@ var router = express.Router();
 // Set up global object
 var global = {
   
-  title: "Josh"
+  title: "josh"
   
 };
 

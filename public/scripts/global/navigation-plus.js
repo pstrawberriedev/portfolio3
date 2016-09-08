@@ -4,14 +4,9 @@
 console.log('--> navigation.js');
 
 (function() {
-  var $pageOverlay = $('#page-overlay');
-  var bodyOverlayClass = 'overlay-active';
 
   var $hamburger = $('#mobile-menu');
   var $mobileNav = $('nav.nav-plus');
-  var $pageContainer = $('#main-content');
-
-  var pagePosition = 0;
 	
   // Document Ready
   $(document).ready(function() {
@@ -46,25 +41,6 @@ console.log('--> navigation.js');
       });
   });
 
-  // Control Page Overlays
-  // - overlay not necessary with nav-plus, so just applying the body class
-  //
-  function showPageOverlay() {
-    
-      $('body').addClass(bodyOverlayClass);
-
-  }
-
-  function hidePageOverlay() {
-    if(!$('#video').length) { //fullscreen video page
-      setTimeout(function() {
-        $('body').removeClass(bodyOverlayClass);
-				console.log(pagePosition);
-				window.scrollTo(0,pagePosition);
-      },400)
-    }
-  }
-
   // Hamburger to X
   //
   function doTheHammy(option) {
@@ -93,11 +69,9 @@ console.log('--> navigation.js');
   // Open & Close Mobile Nav Functions
   //
   function closeNav() {
-
+    
     doTheHammy('close');
-    hidePageOverlay();
     TweenLite.to($mobileNav, .3, { width: 0, ease: Power1.easeOut })
-    TweenLite.to($pageContainer, .3, { x: 0, ease: Power1.easeOut})
     $hamburger.removeClass('active');
 
   }
@@ -105,10 +79,8 @@ console.log('--> navigation.js');
   function openNav() {
 
     doTheHammy('open');
-    showPageOverlay();
     TweenLite.to($mobileNav, .3, { width: 305, ease: Power1.easeOut })
-    TweenLite.to($pageContainer, .3, { x: 305, ease: Power1.easeOut })
-    $hamburger.addClass('active'); 
+    $hamburger.addClass('active');
 
   }
 
@@ -116,11 +88,7 @@ console.log('--> navigation.js');
   //
   $hamburger.on('click', function(e) {
     e.preventDefault();
-		
-		if($('body').scrollTop() != 0) {
-			pagePosition = $('body').scrollTop();
-		}
-		
+    
     // Default Action
     if(! $hamburger.hasClass('active')) {
       openNav();
