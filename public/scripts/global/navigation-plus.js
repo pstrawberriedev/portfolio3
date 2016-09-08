@@ -40,7 +40,7 @@ console.log('--> navigation.js');
               ink.css({ top: y + 'px', left: x + 'px' }).addClass("animate");
       });
   });
-
+  
   // Hamburger to X
   //
   function doTheHammy(option) {
